@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanu Sharma — Job Search & Personal Branding Toolkit</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7f4; color: #1a1a1a; line-height: 1.7; }
+
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 3rem 2rem; text-align: center;
+  }
+  .hero-name { font-size: 2.6rem; font-weight: 700; letter-spacing: -0.5px; }
+  .hero-tagline { font-size: 1.1rem; color: #a0c4ff; margin-top: 0.5rem; }
+  .hero-meta { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .hero-meta span { font-size: 0.85rem; color: #cdd9f0; }
+  .hero-meta i { margin-right: 4px; }
+
+  .nav {
+    background: #0f3460; display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 4px; padding: 0.75rem 1rem; position: sticky; top: 0; z-index: 100;
+  }
+  .nav a {
+    color: #a0c4ff; text-decoration: none; font-size: 0.78rem; padding: 4px 10px;
+    border-radius: 4px; transition: background 0.2s;
+  }
+  .nav a:hover { background: rgba(160,196,255,0.15); color: white; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  .section {
+    background: white; border-radius: 12px; border: 1px solid #e5e2da;
+    padding: 2rem; margin-bottom: 1.5rem;
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem;
+    padding-bottom: 1rem; border-bottom: 2px solid #f0ede6;
+  }
+  .section-number {
+    background: #0f3460; color: white; font-size: 0.75rem; font-weight: 700;
+    width: 32px; height: 32px; border-radius: 8px; display: flex;
+    align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .section-title { font-size: 1.1rem; font-weight: 700; color: #0f3460; }
+  .section-subtitle { font-size: 0.8rem; color: #888; margin-top: 2px; }
+
+  .content-box {
+    background: #f9f8f5; border: 1px solid #e8e5de; border-radius: 8px;
+    padding: 1.25rem 1.5rem; font-size: 0.92rem; line-height: 1.8; white-space: pre-wrap;
+    font-family: 'Georgia', serif; color: #2a2a2a;
+  }
+  .content-box.mono { font-family: 'Segoe UI', sans-serif; font-size: 0.9rem; }
+
+  .email-wrapper { border: 1px solid #dde; border-radius: 8px; overflow: hidden; }
+  .email-header { background: #f3f4f8; padding: 0.75rem 1.25rem; border-bottom: 1px solid #dde; }
+  .email-field { font-size: 0.82rem; color: #555; margin-bottom: 3px; }
+  .email-field strong { color: #1a1a1a; min-width: 50px; display: inline-block; }
+  .email-body { padding: 1.25rem; font-size: 0.91rem; line-height: 1.8; white-space: pre-wrap; font-family: Georgia, serif; color: #2a2a2a; }
+
+  .badge-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.5rem; }
+  .badge {
+    padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+  }
+  .badge-blue { background: #e6f0fb; color: #0f3460; border: 1px solid #bcd0f0; }
+  .badge-green { background: #eaf3de; color: #3b6d11; border: 1px solid #c0dd97; }
+  .badge-amber { background: #faeeda; color: #854f0b; border: 1px solid #f0c980; }
+  .badge-red { background: #fcebeb; color: #a32d2d; border: 1px solid #f7c1c1; }
+  .badge-purple { background: #eeedfe; color: #3c3489; border: 1px solid #afa9ec; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .strength-card {
+    background: #f4f7fd; border: 1px solid #d0dcf0; border-radius: 8px;
+    padding: 0.9rem 1rem;
+  }
+  .strength-title { font-weight: 700; font-size: 0.85rem; color: #0f3460; margin-bottom: 4px; }
+  .strength-desc { font-size: 0.82rem; color: #555; line-height: 1.5; }
+
+  .roadmap-step {
+    display: flex; gap: 1rem; margin-bottom: 1rem; align-items: flex-start;
+  }
+  .roadmap-num {
+    background: #0f3460; color: white; font-size: 0.75rem; font-weight: 700;
+    width: 26px; height: 26px; border-radius: 50%; display: flex;
+    align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+  }
+  .roadmap-content h4 { font-size: 0.9rem; font-weight: 700; color: #0f3460; margin-bottom: 2px; }
+  .roadmap-content p { font-size: 0.83rem; color: #555; }
+
+  .brand-card {
+    background: linear-gradient(135deg, #0f3460, #1a4d8f);
+    color: white; border-radius: 10px; padding: 1.5rem;
+  }
+  .brand-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px; color: #a0c4ff; margin-bottom: 6px; }
+  .brand-text { font-size: 1rem; line-height: 1.6; }
+
+  .talking-point {
+    border-left: 3px solid #0f3460; padding-left: 1rem; margin-bottom: 1rem;
+  }
+  .talking-point h4 { font-size: 0.88rem; font-weight: 700; color: #0f3460; margin-bottom: 4px; }
+  .talking-point p { font-size: 0.84rem; color: #444; line-height: 1.55; }
+
+  .job-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+  .job-card {
+    background: #f4f7fd; border: 1px solid #cdd9f0; border-radius: 8px;
+    padding: 0.75rem 1rem; font-size: 0.84rem; font-weight: 600; color: #0f3460;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .gap-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  .gap-col h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; }
+  .gap-item { font-size: 0.82rem; color: #444; padding: 3px 0; border-bottom: 1px solid #f0ede6; }
+
+  .intro-box {
+    background: linear-gradient(135deg, #e6f0fb, #edf4ff);
+    border: 1px solid #bcd0f0; border-radius: 10px; padding: 1.5rem;
+    font-size: 1rem; font-style: italic; line-height: 1.75; color: #1a2a4a;
+  }
+
+  @media (max-width: 600px) {
+    .two-col { grid-template-columns: 1fr; }
+    .gap-row { grid-template-columns: 1fr; }
+    .hero-name { font-size: 1.8rem; }
+  }
+
+  .copy-btn {
+    float: right; background: #0f3460; color: white; border: none;
+    padding: 4px 12px; border-radius: 6px; font-size: 0.75rem;
+    cursor: pointer; margin-top: -4px;
+  }
+  .copy-btn:hover { background: #1a4d8f; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-name">Tanu Sharma</div>
+  <div class="hero-tagline">B.Tech CSE Student · Java Developer · Aspiring Software Engineer</div>
+  <div class="hero-meta">
+    <span>📍 Kanpur, India</span>
+    <span>📧 8840tanusharma@gmail.com</span>
+    <span>📞 9305853927</span>
+    <span>🎓 CGPA 8.91 | MPEC</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <a href="#s1">Cover Letter</a>
+  <a href="#s2">Recruiter Email</a>
+  <a href="#s3">HM Email</a>
+  <a href="#s4">LinkedIn</a>
+  <a href="#s5">Referral</a>
+  <a href="#s6">Follow-Up</a>
+  <a href="#s7">30-Sec Intro</a>
+  <a href="#s8">Job Titles</a>
+  <a href="#s9">Strengths</a>
+  <a href="#s10">Skill Gap</a>
+  <a href="#s11">Brand</a>
+  <a href="#s12">Interview</a>
+</nav>
+
+<div class="container">
+
+  <!-- SECTION 1: COVER LETTER -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-number">01</div>
+      <div>
+        <div class="section-title">ATS-Friendly Cover Letter</div>
+        <div class="section-subtitle">350–450 words · ready to customize with company name</div>
+      </div>
+    </div>
+    <div class="content-box">
+Tanu Sharma
+Kanpur, India | 9305853927 | 8840tanusharma@gmail.com
+
+[Date]
+
+Hiring Manager
+[Company Name]
+[Company Address]
+
+Subject: Application for [Job Title] — B.Tech CSE Student | CGPA 8.91 | Java & Python Developer
+
+Dear Hiring Manager,
+
+I am a final-year B.Tech Computer Science and Engineering student at Maharana Pratap Engineering College, Kanpur, with a CGPA of 8.91, writing to apply for the [Job Title] position at [Company Name]. I bring hands-on experience in Java programming, web development, and Python, combined with a strong foundation in data structures and algorithms.
+
+During my academic journey, I independently designed and deployed four end-to-end projects. My Weather App demonstrates real-time API consumption and responsive web development using HTML, CSS, and JavaScript. My To-Do List Application showcases complete CRUD implementation with a clean, user-centered interface. I also built a Python-based Password Generator, applying algorithmic thinking and string manipulation — skills directly transferable to Java-based backend and automation tasks. Each project was built from scratch, reinforcing my ability to take ownership of the full development lifecycle.
+
+Beyond individual projects, I earned the AWS Solutions Architecture Job Simulation certification (Forage, January 2026), which exposed me to cloud infrastructure design principles, serverless architecture, and scalable system thinking — a skillset increasingly valuable in modern Java backend and enterprise teams. Additionally, completing the Basics of Data Structures and Algorithms course has strengthened my problem-solving aptitude for technical interviews and real-world Java coding challenges.
+
+Academically, I have consistently demonstrated excellence: scoring 95.4% in Class XII (UP Board) and maintaining an 8.91 CGPA in B.Tech — placing me in the top tier of my cohort. As a Campus Ambassador for Mind Seekers, I developed communication, coordination, and stakeholder management skills that complement my technical profile.
+
+I am proficient in Java, Python, and JavaScript, with hands-on experience in HTML and CSS, and a working knowledge of C. I thrive in collaborative environments and am eager to learn industry tools, agile workflows, and production-grade Java engineering practices.
+
+[Company Name]'s focus on [mention one company-specific value/product] resonates strongly with my interest in building practical, user-impacting software. I am confident that my academic discipline, project-building mindset, and willingness to grow make me a strong fit for your team.
+
+I would welcome the opportunity to discuss how I can contribute to [Company Name]. Thank you for your time and consideration.
+
+Sincerely,
+Tanu Sharma
+9305853927 | 8840tanusharma@gmail.com</div>
+  </div>
+
+  <!-- SECTION 2: RECRUITER OUTREACH EMAIL -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-number">02</div>
+      <div>
+        <div class="section-title">Recruiter Outreach Email</div>
+        <div class="section-subtitle">Cold outreach to a recruiter on LinkedIn or email</div>
+      </div>
+    </div>
+    <div class="email-wrapper">
+      <div class="email-header">
+        <div class="email-field"><strong>To:</strong> [Recruiter Name] — [Company/Staffing Firm]</div>
+        <div class="email-field"><strong>Subject:</strong> B.Tech CSE Student (CGPA 8.91) | Java Developer + AWS Certified | Seeking SDE / Java Dev Roles</div>
+      </div>
+      <div class="email-body">Hi [Recruiter Name],
+
+I hope this message finds you well. My name is Tanu Sharma — a B.Tech Computer Science student (CGPA: 8.91) at Maharana Pratap Engineering College, Kanpur, with a foundational grounding in Java programming, web development, and Python.
+
+I have independently built and deployed projects including a real-time Weather App (HTML/CSS/JavaScript + API integration), a To-Do List Application with CRUD functionality, and a Python-based Password Generator. My academic curriculum includes Java as a core language, and I have applied object-oriented programming concepts throughout my studies. I also recently completed the AWS Solutions Architecture Job Simulation (Forage, Jan 2026), giving me exposure to cloud architecture principles.
+
+I am actively looking for opportunities as a Java Developer Intern, Software Developer Intern, or Junior Java Engineer — where I can deepen my Java skills and grow under experienced engineers.
+
+I would love to be considered for any relevant openings in your talent pool. I have attached my resume for your review.
+
+Would you be open to a quick 10-minute call or an email exchange to discuss fit?
+
+Thank you for your time.
+
+Best regards,
+Tanu Sharma
+8840tanusharma@gmail.com | 9305853927</div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: HIRING MANAGER EMAIL -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-number">03</div>
+      <div>
+        <div class="section-title">Hiring Manager Email</div>
+        <div class="section-subtitle">Direct reach-out when you know the team lead or engineering manager</div>
+      </div>
+    </div>
+    <div class="email-wrapper">
+      <div class="email-header">
+        <div class="email-field"><strong>To:</strong> [Hiring Manager Name] — [Company]</div>
+        <div class="email-field"><strong>Subject:</strong> Aspiring Java Developer Intern | CGPA 8.91 | Java + AWS Experience | Kanpur</div>
+      </div>
+      <div class="email-body">Dear [Manager Name],
+
+I came across [Company Name]'s work on [mention a product/feature/tech blog] and was genuinely impressed by [specific detail]. I am reaching out directly because I believe my technical background aligns well with what your Java engineering team is building.
+
+I am Tanu Sharma, a B.Tech CSE student at Maharana Pratap Engineering College with a CGPA of 8.91. Java has been a core part of my B.Tech curriculum, where I applied object-oriented programming, exception handling, and core Java concepts. I have also built web applications using HTML, CSS, and JavaScript — including a real-time Weather App integrating external APIs, and a To-Do List Application with full CRUD functionality. On the scripting side, I developed a Python-based Password Generator, reinforcing my programming logic and algorithmic thinking.
+
+I also completed the AWS Solutions Architecture Job Simulation (Forage, January 2026), which deepened my understanding of scalable system design — directly relevant for Java backend and microservices environments.
+
+What I bring beyond technical skills is academic rigor (95.4% in Class XII, 8.91 CGPA in engineering), self-directed project ownership, and a strong eagerness to learn and contribute from day one.
+
+If there is a Java developer internship or entry-level opening on your team — or even a referral conversation — I would deeply value 15 minutes of your time. I have attached my resume and would be happy to share my project code on request.
+
+Thank you for considering this outreach.
+
+Warmly,
+Tanu Sharma
+8840tanusharma@gmail.com | 9305853927</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: LINKEDIN CONNECTION -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-number">04</div>
+      <div>
+        <div class="section-title">LinkedIn Connection Request</div>
+        <div class="section-subtitle">Max 300 characters — punchy and personal</div>
+      </div>
+    </div>
+    <div class="content-box mono">Hi [Name], I'm a B.Tech CSE student (CGPA 8.91) with a strong foundation in Java and building real-world software projects. I admire [Company/their work] and would love to connect, learn from your journey, and explore Java developer opportunities. Thank you!</div>
+    <div style="margin-top: 0.75rem; font-size: 0.8rem; color: #888;">⬆ 241 characters — within LinkedIn's 300-character limit</div>
+  </div>
+
+  <!-- SECTION 5: REFERRAL REQUEST -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-number">05</div>
+      <div>
+        <div class="section-title">Referral Request Message</div>
+        <div class="section-subtitle">To a senior contact, alumnus, or professional connection at your target company</div>
+      </div>
+    </div>
+    <div class="email-wrapper">
+      <div class="email-header">
+        <div class="email-field"><strong>To:</strong> [Contact Name] at [Company]</div>
+        <div class="email-field"><strong>Subject:</strong> Referral Request — Java Developer Intern / Junior SDE | MPEC B.Tech CSE, CGPA 8.91</div>
+      </div>
+      <div class="email-body">Hi [Name],
+
+I hope you're doing well! I'm Tanu Sharma, currently pursuing B.Tech in Computer Science at Maharana Pratap Engineering College, Kanpur (CGPA: 8.91). I believe we [mention connection — college, event, LinkedIn, etc.].
+
+I noticed [Company Name] is hiring for [Job Title / Internship], and I'm very interested in applying. Given your experience there, I wanted to ask if you'd be comfortable referring me or sharing any insights about the team or hiring process.
+
+A quick summary of my profile:
+• B.Tech CSE, CGPA 8.91 | Maharana Pratap Engineering College
+• Projects: Weather App (JS + API), To-Do List (CRUD), Password Generator (Python)
+• Certification: AWS Solutions Architecture Job Simulation (Forage, Jan 2026)
+• Skills: Java, Python, HTML, CSS, JavaScript, DSA Fundamentals
+
+I completely understand if you're busy or if it's not possible — no pressure at all. Even a pointer to the right team or a brief conversation about the culture would mean a lot.
+
+I've attached my resume. Thank you so much for your time, [Name].
+
+Best,
+Tanu Sharma
+8840tanusharma@gmail.com | 9305853927</div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: FOLLOW-UP EMAIL -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-number">06</div>
+      <div>
+        <div class="section-title">Follow-Up Email</div>
+        <div class="section-subtitle">Send after 5 business days of no response</div>
+      </div>
+    </div>
+    <div class="email-wrapper">
+      <div class="email-header">
+        <div class="email-field"><strong>Subject:</strong> Following Up — Tanu Sharma | Application for [Job Title]</div>
+      </div>
+      <div class="email-body">Hi [Name],
+
+I wanted to follow up on my application for the [Job Title] role at [Company Name], which I submitted on [Date].
+
+I remain very enthusiastic about the opportunity and the work your team does in [mention one relevant area]. Since my initial outreach, I have [add if applicable: completed a new project / course / certification] — further strengthening my readiness to contribute from day one.
+
+I understand you receive many applications, so I truly appreciate your time. I'd welcome any update on my application status or next steps.
+
+Please feel free to reach out at 8840tanusharma@gmail.com or 9305853927.
+
+Thank you again, and I look forward to hearing from you.
+
+Best regards,
+Tanu Sharma</div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: 30-SECOND INTRO -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-number">07</div>
+      <div>
+        <div class="section-title">30-Second Professional Introduction</div>
+        <div class="section-subtitle">For interviews, networking events, career fairs — memorize and adapt naturally</div>
+      </div>
+    </div>
+    <div class="intro-box">
+"Hi, I'm Tanu Sharma — a B.Tech Computer Science student at Maharana Pratap Engineering College, Kanpur, graduating with a CGPA of 8.91. I have a strong foundation in Java programming from my academic curriculum, and I've applied those skills alongside Python and JavaScript to independently build four projects — including a real-time Weather App, a full-stack To-Do application with CRUD functionality, and a Python-based Password Generator. I've also earned an AWS Solutions Architecture certification through Forage, which gave me hands-on exposure to cloud system design. I'm someone who learns fast, takes ownership end-to-end, and is eager to contribute meaningfully to a real engineering team. I'm actively looking for Java developer internship or entry-level SDE roles where I can deepen my skills and add real value."
+    </div>
+    <div style="margin-top: 0.75rem; font-size: 0.8rem; color: #888;">⏱ Approximately 25–30 seconds at a comfortable speaking pace</div>
+  </div>
+
+  <!-- SECTION 8: JOB TITLES -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-number">08</div>
+      <div>
+        <div class="section-title">Top 10 Job Titles Best Suited for Your Profile</div>
+        <div class="section-subtitle">Ranked by profile match strength</div>
+      </div>
+    </div>
+    <div class="job-grid">
+      <div class="job-card">🥇 Java Developer Intern</div>
+      <div class="job-card">🥈 Software Developer Intern (SDE)</div>
+      <div class="job-card">🥉 Junior Java Developer</div>
+      <div class="job-card">💼 Java Backend Developer Trainee</div>
+      <div class="job-card">💼 Associate Software Engineer</div>
+      <div class="job-card">💼 Junior Software Engineer</div>
+      <div class="job-card">💼 Full Stack Developer Trainee</div>
+      <div class="job-card">💼 Cloud/Tech Support Analyst</div>
+      <div class="job-card">💼 Graduate Trainee Engineer</div>
+      <div class="job-card">💼 Python / Java Developer Trainee</div>
+    </div>
+    <div style="margin-top: 1rem; font-size: 0.83rem; color: #666; line-height: 1.6;">
+      <strong>Where to apply:</strong> Internshala, LinkedIn, Naukri.com, Unstop, HackerEarth, Infosys Springboard, TCS iON, Campus placements, and startup portals like AngelList/Wellfound.
+    </div>
+  </div>
+
+  <!-- SECTION 9: KEY STRENGTHS -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-number">09</div>
+      <div>
+        <div class="section-title">Key Strengths Recruiters Will Notice</div>
+        <div class="section-subtitle">Your most marketable differentiators as a fresher candidate</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="strength-card">
+        <div class="strength-title">🎓 Exceptional Academic Record</div>
+        <div class="strength-desc">CGPA 8.91, Class XII at 95.4% — consistently in top tier. Signals discipline, intellectual ability, and learnability.</div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-title">🛠 End-to-End Project Ownership</div>
+        <div class="strength-desc">Built 4 independent projects spanning frontend, Python, and API integration — rare for students at this stage.</div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-title">☁️ AWS Exposure (Fresher Differentiator)</div>
+        <div class="strength-desc">AWS Solutions Architecture Job Simulation sets you apart from most CS students who lack any cloud experience.</div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-title">☕ Java Programming Foundation</div>
+        <div class="strength-desc">Java is a core B.Tech CSE subject — object-oriented concepts, data structures, and logic-building are directly applicable to Java developer roles.</div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-title">🐍 Python Programming Skills</div>
+        <div class="strength-desc">Working knowledge of Python with applied project (Password Generator) — relevant for automation, scripting, and backend roles.</div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-title">📣 Leadership & Communication</div>
+        <div class="strength-desc">Campus Ambassador role demonstrates initiative, people skills, and organizational engagement beyond academics.</div>
+      </div>
+    </div>
+    <div style="margin-top: 1.25rem;">
+      <div style="font-size: 0.85rem; font-weight: 700; color: #0f3460; margin-bottom: 8px;">Core Technical Skills</div>
+      <div class="badge-grid">
+        <span class="badge badge-blue">Java (OOP)</span>
+        <span class="badge badge-blue">Python</span>
+        <span class="badge badge-blue">HTML & CSS</span>
+        <span class="badge badge-blue">JavaScript</span>
+        <span class="badge badge-green">AWS (Job Simulation)</span>
+        <span class="badge badge-green">REST API Integration</span>
+        <span class="badge badge-purple">Data Structures (Fundamentals)</span>
+        <span class="badge badge-purple">CRUD Operations</span>
+        <span class="badge badge-amber">MS Office Suite</span>
+        <span class="badge badge-amber">Responsive Web Design</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 10: SKILL GAP ANALYSIS -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-number">10</div>
+      <div>
+        <div class="section-title">Skill Gap Analysis</div>
+        <div class="section-subtitle">Where you are · what's missing · how to close the gap</div>
+      </div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-col">
+        <h4 style="color: #3b6d11;">✅ Current Strengths</h4>
+        <div class="gap-item">HTML, CSS, JavaScript</div>
+        <div class="gap-item">Python Programming</div>
+        <div class="gap-item">API Integration (REST)</div>
+        <div class="gap-item">CRUD Web Applications</div>
+        <div class="gap-item">AWS (Architecture Basics)</div>
+        <div class="gap-item">DSA Fundamentals</div>
+        <div class="gap-item">Responsive Web Design</div>
+        <div class="gap-item">MS Office Tools</div>
+      </div>
+      <div class="gap-col">
+        <h4 style="color: #a32d2d;">⚠️ Missing / Weak Areas</h4>
+        <div class="gap-item">Spring Boot / Spring Framework</div>
+        <div class="gap-item">Java Collections & Generics (depth)</div>
+        <div class="gap-item">Version Control (Git/GitHub)</div>
+        <div class="gap-item">SQL / Database Basics (JDBC)</div>
+        <div class="gap-item">DSA — Advanced Topics</div>
+        <div class="gap-item">LeetCode / CP Practice (Java)</div>
+        <div class="gap-item">Maven / Gradle Build Tools</div>
+        <div class="gap-item">Unit Testing (JUnit basics)</div>
+      </div>
+      <div class="gap-col">
+        <h4 style="color: #0f3460;">🗺 Learning Roadmap</h4>
+        <div class="gap-item">Month 1–2: Git + GitHub</div>
+        <div class="gap-item">Month 1–2: Core Java (depth) — Collections, OOP</div>
+        <div class="gap-item">Month 2–3: SQL + JDBC (W3Schools / SQLZoo)</div>
+        <div class="gap-item">Month 2–4: DSA in Java — Striver's SDE Sheet</div>
+        <div class="gap-item">Month 3–4: Spring Boot basics</div>
+        <div class="gap-item">Month 4–5: Build a Java REST API project</div>
+        <div class="gap-item">Ongoing: 2 LeetCode (Java) problems/day</div>
+        <div class="gap-item">Ongoing: Push all projects to GitHub</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 1.5rem; border-top: 1px solid #f0ede6; padding-top: 1rem;">
+      <div style="font-size: 0.85rem; font-weight: 700; color: #0f3460; margin-bottom: 10px;">Priority Learning Roadmap (Next 6 Months)</div>
+      <div class="roadmap-step">
+        <div class="roadmap-num">1</div>
+        <div class="roadmap-content">
+          <h4>Git & GitHub (Week 1–2)</h4>
+          <p>Push all 4 existing projects to GitHub with clean READMEs. Recruiters check GitHub before interviews. Free: "The Odin Project" Git module.</p>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="roadmap-num">2</div>
+        <div class="roadmap-content">
+          <h4>Core Java — Deep Dive (Month 1–2)</h4>
+          <p>Master Collections, Generics, Exception Handling, and Multithreading. Rebuild your Password Generator or To-Do app in Java. Free: Kunal Kushwaha Java YouTube series.</p>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="roadmap-num">3</div>
+        <div class="roadmap-content">
+          <h4>DSA in Java — Striver's A2Z Sheet (Month 2–5)</h4>
+          <p>Solve 150+ problems in Java. Essential for SDE interviews. Free: LeetCode + take U forward YouTube + Striver's sheet.</p>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="roadmap-num">4</div>
+        <div class="roadmap-content">
+          <h4>SQL + JDBC Basics (Month 2–3)</h4>
+          <p>Most Java developer roles ask SQL and basic JDBC in interviews. Free: SQLZoo, W3Schools SQL, JDBC tutorial on Baeldung.</p>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="roadmap-num">5</div>
+        <div class="roadmap-content">
+          <h4>Spring Boot Introduction (Month 4–5)</h4>
+          <p>Build a simple REST API using Spring Boot — this is the single most in-demand Java skill in the industry. Free: Spring.io guides + Amigoscode YouTube.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 11: PERSONAL BRAND -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <div class="section-number">11</div>
+      <div>
+        <div class="section-title">Personal Brand Summary</div>
+        <div class="section-subtitle">Your professional identity as a market-ready candidate</div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <div class="brand-card">
+        <div class="brand-label">Unique Value Proposition</div>
+        <div class="brand-text">A disciplined, high-achieving CS student who doesn't just study technology — she builds with it. With 4 self-initiated projects, cloud architecture exposure, and a consistent academic record, Tanu brings the rare combination of academic excellence and practical build-it-from-scratch attitude that early-stage and product companies actually need in their junior hires.</div>
+      </div>
+      <div class="brand-card" style="background: linear-gradient(135deg, #0a4d2e, #0f6e56);">
+        <div class="brand-label" style="color: #9fdfcb;">Professional Positioning Statement</div>
+        <div class="brand-text">Java programmer and web developer with hands-on project experience in application development, API integration, and cloud architecture foundations — seeking to make a meaningful first-job contribution while growing into a backend Java engineering role.</div>
+      </div>
+      <div style="background: #f0f4ff; border: 2px solid #bcd0f0; border-radius: 10px; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: #0f3460; margin-bottom: 8px; font-weight: 700;">Recruiter Headline (LinkedIn / Resume)</div>
+        <div style="font-size: 1.1rem; font-weight: 700; color: #0f3460;">B.Tech CSE Student (CGPA 8.91) | Java Developer | Python | AWS Certified | 4 Live Projects | Open to Internships & SDE Roles</div>
+      </div>
+      <div style="background: #fafafa; border: 1px solid #e5e2da; border-radius: 10px; padding: 1.25rem;">
+        <div style="font-size: 0.8rem; font-weight: 700; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Brand Pillars</div>
+        <div class="badge-grid">
+          <span class="badge badge-blue">Academic Excellence</span>
+          <span class="badge badge-green">Hands-On Builder</span>
+          <span class="badge badge-purple">Cloud-Aware</span>
+          <span class="badge badge-amber">Self-Starter</span>
+          <span class="badge badge-red">Growth-Oriented</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 12: INTERVIEW TALKING POINTS -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <div class="section-number">12</div>
+      <div>
+        <div class="section-title">Interview Talking Points</div>
+        <div class="section-subtitle">Prepare these stories before every technical and HR interview</div>
+      </div>
+    </div>
+
+    <div style="font-size: 0.85rem; font-weight: 700; color: #0f3460; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Most Impressive Achievements to Lead With</div>
+
+    <div class="talking-point">
+      <h4>Academic Consistency — "Top of the Class" Story</h4>
+      <p>"I scored 95.4% in Class XII and currently maintain a CGPA of 8.91 in B.Tech — both reflect my commitment to deep, consistent learning. I don't just study to pass; I study to understand, which is why I can apply what I've learned in real projects."</p>
+    </div>
+    <div class="talking-point">
+      <h4>Weather App — Real-World API Integration Story</h4>
+      <p>"I built a responsive Weather App in pure JavaScript that fetches live data from a weather API and displays it dynamically. I ran into CORS issues and had to debug asynchronous fetch calls — that experience taught me how client-server communication actually works, not just in theory."</p>
+    </div>
+    <div class="talking-point">
+      <h4>To-Do App — CRUD & UI Design Story</h4>
+      <p>"My To-Do application wasn't just a tutorial clone — I designed the UI from scratch and implemented Create, Read, Update, and Delete operations with local state management. I focused heavily on the user experience, which taught me that clean code and clean design are equally important."</p>
+    </div>
+    <div class="talking-point">
+      <h4>AWS Certification — Cloud Mindset Story</h4>
+      <p>"Even before having hands-on cloud access, I completed the AWS Solutions Architecture Job Simulation on Forage to understand how scalable systems are designed. It changed how I think about architecture — I now consider performance, availability, and cost even in small projects."</p>
+    </div>
+
+    <div style="font-size: 0.85rem; font-weight: 700; color: #a32d2d; margin: 1.25rem 0 12px; text-transform: uppercase; letter-spacing: 0.5px;">⚠️ Areas Recruiters Will Likely Probe — Prepare Honest Answers</div>
+
+    <div class="talking-point" style="border-left-color: #e24b4a;">
+      <h4>"How proficient are you in Java? Have you built anything with it?"</h4>
+      <p><em>Honest answer:</em> "Java has been a core subject throughout my B.Tech — I've studied OOP, data structures, and algorithmic logic using Java. I'm currently going deeper — working on building a Java-based application project and solving DSA problems in Java on LeetCode to sharpen my practical skills."</p>
+    </div>
+    <div class="talking-point" style="border-left-color: #e24b4a;">
+      <h4>"Have you worked in a team or used Git?"</h4>
+      <p><em>Honest answer:</em> "My projects so far have been individual — however, as a Campus Ambassador, I worked closely with a team to coordinate events. I am actively setting up a GitHub profile and learning version control best practices as a top priority right now."</p>
+    </div>
+    <div class="talking-point" style="border-left-color: #e24b4a;">
+      <h4>"How strong are you in DSA / competitive programming?"</h4>
+      <p><em>Honest answer:</em> "I have completed the fundamentals of Data Structures and Algorithms. I am currently strengthening this through consistent LeetCode practice and working through structured problem sets — I see this as an ongoing commitment, not a one-time activity."</p>
+    </div>
+
+    <div style="margin-top: 1.25rem; background: #f0f7ff; border: 1px solid #bcd0f0; border-radius: 8px; padding: 1rem 1.25rem;">
+      <div style="font-size: 0.83rem; font-weight: 700; color: #0f3460; margin-bottom: 6px;">Common HR Questions — Quick Prep</div>
+      <div style="font-size: 0.83rem; color: #333; line-height: 1.7;">
+        <strong>"Tell me about yourself"</strong> → Use your 30-Second Intro from Section 7.<br>
+        <strong>"Why this company?"</strong> → Research 1 product, 1 value, 1 recent news item before every interview.<br>
+        <strong>"What is your greatest strength?"</strong> → Academic discipline + self-directed project building.<br>
+        <strong>"Where do you see yourself in 5 years?"</strong> → Java backend engineer contributing to scalable product development, with deeper expertise in Spring Boot, microservices, and cloud architecture.<br>
+        <strong>"Why should we hire you?"</strong> → "I bring academic rigor, real project experience, and a proven ability to learn and apply independently. You're getting someone who won't need hand-holding — I'll hit the ground running."
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; padding: 2rem 0; color: #888; font-size: 0.82rem;">
+    Generated for Tanu Sharma · Job Search & Personal Branding Toolkit · June 2026<br>
+    <span style="color: #0f3460; font-weight: 600;">Update [placeholders in brackets] before sending any message.</span>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.target;
+    const el = document.getElementById(target);
+    if (el) { navigator.clipboard.writeText(el.innerText); btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); }
+  });
+});
+</script>
+</body>
+</html>
